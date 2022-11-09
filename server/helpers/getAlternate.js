@@ -1,5 +1,3 @@
-const { get } = require("../app");
-
 const getAlternate = note => {
   const naturals = ["C", "D", "E", "F", "G", "A", "B"];
   const { octave, letter, accidental } = note;
