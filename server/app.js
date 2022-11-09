@@ -3,6 +3,7 @@ const path = require("path");
 const logger = require("morgan");
 
 const notesRouter = require("./routes/notes");
+const octavesRouter = require("./routes/octaves");
 
 const app = express();
 
@@ -12,5 +13,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/notes", notesRouter);
+app.use("/octaves", octavesRouter);
 
 module.exports = app;
