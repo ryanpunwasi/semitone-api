@@ -24,9 +24,17 @@ router.get("/octaves/:octave", (req, res) => {
 
 router.get("/:octave/:letter/:accidental?", (req, res) => {
   const { octave, letter, accidental } = req.params;
+  const naturals = ["C", "D", "E", "F", "G", "A", "B"];
+
+  if (!parseInt(octave) || !naturals.includes(letter.toUpperCase()))
+    return res.sendStatus(404);
+
+  if (accidental && (accidental !== "sharp" || accidental !== "flat"))
+    return res.sendStatus(404);
+
   notes
     .getNote(octave, letter, accidental)
-    .then(data => res.json({ note: data }));
+    .then(data => res.json({ note: data[0] }));
 });
 
 module.exports = router;
