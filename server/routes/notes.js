@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const notes = require("../db/queries/notes");
+const getAlternate = require("../helpers/getAlternate");
 
 router.get("/", (req, res) => {
   notes.getAllNotes().then(data => {
@@ -24,12 +25,18 @@ router.get("/octaves/:octave", (req, res) => {
 
 router.get("/:octave/:letter/:accidental?", (req, res) => {
   const { octave, letter, accidental } = req.params;
+  const alternate = getAlternate({ octave, letter, accidental });
   const naturals = ["C", "D", "E", "F", "G", "A", "B"];
 
   if (!parseInt(octave) || !naturals.includes(letter.toUpperCase()))
     return res.sendStatus(404);
 
-  if (accidental && (accidental !== "sharp" || accidental !== "flat"))
+  if (
+    accidental &&
+    accidental !== "sharp" &&
+    accidental !== "flat" &&
+    accidental !== "natural"
+  )
     return res.sendStatus(404);
 
   notes
