@@ -30,6 +30,12 @@ test("returns G flat when given F sharp", () => {
   ).toStrictEqual({ octave: 4, letter: "G", accidental: "flat" });
 });
 
+test("returns E flat when given D sharp", () => {
+  expect(
+    getAlternate({ octave: 4, letter: "D", accidental: "sharp" })
+  ).toStrictEqual({ octave: 4, letter: "E", accidental: "flat" });
+});
+
 test("returns same note if accidental is natural", () => {
   expect(
     getAlternate({ octave: 4, letter: "F", accidental: "natural" })
