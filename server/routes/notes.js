@@ -2,9 +2,12 @@ const router = require("express").Router();
 const notes = require("../db/queries/notes");
 const getAlternate = require("../helpers/getAlternate");
 
+// Get all notes
 router.get("/", (req, res) => {
   notes.getAllNotes().then(data => {
     const notes = {};
+
+    // Organize notes by octave
     data.forEach(note => {
       if (notes[note.octave_id]) {
         notes[note.octave_id].push(note);
@@ -12,10 +15,12 @@ router.get("/", (req, res) => {
         notes[note.octave_id] = [note];
       }
     });
+
     return res.json({ notes });
   });
 });
 
+// Get all notes from a given octave
 router.get("/octaves/:octave", (req, res) => {
   const { octave } = req.params;
   notes.getOctave(octave).then(data => {
@@ -46,6 +51,8 @@ router.get("/:octave/:letter/:accidental?", (req, res) => {
       notes
         .getNote(octave, letter, accidental)
         .then(data => res.json({ note: data[0] }));
+    } else if (!data.length && !alternate) {
+      return res.sendStatus(404);
     } else {
       return res.json({ note: data[0] });
     }
