@@ -7,7 +7,7 @@ const pool = new Pool({
   user: DB_USER,
   host: DB_HOST,
   password: DB_PASSWORD,
-  port: DB_PORT,
+  port: DB_PORT || "8080",
   database: DB_DATABASE,
 });
 
