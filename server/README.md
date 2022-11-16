@@ -16,19 +16,32 @@ Each note is represented as an object with the following properties:
 
 ## Guide
 
-### Endpoints
-
-Get all notes
-GET request to <code>/notes</code>
-
-GET request to <code>/octaves</code>
-
-Get all notes in an octave
-GET request to <code>/notes/octaves/:octaveId</code>
-
-Get a specific note
-GET request to <code>/notes/{octave}/{letter}/{accidental}</code>
-
 ### How To Use
 
-### Exceptions
+<p>Making your first REST API call is easy and can be done from your browser.</p>
+
+REST calls are made up of:
+
+<ul>
+<li>Base URL. Example <code>https://semitone-api.fly.dev</code></li>
+<li>Endpoint. Example <code>/notes</code></li>
+</ul>
+
+### List of Endpoints
+
+<ul>
+<li>Get all notes (grouped by octave)<br />
+<code>/notes</code></li>
+
+<li>Get all octaves<br />
+<code>/octaves</code></li>
+
+<li>Get all notes in a specific octave<br />
+<code>/notes/octaves/{octave}</code></li>
+
+<li>Get a specific note<br />
+<code>/notes/{octave}/{letter}/{accidental}</code></li>
+
+</ul>
+
+## Exceptions
