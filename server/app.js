@@ -14,6 +14,8 @@ const limiter = rateLimit({
   max: 10,
 });
 
+app.set("view engine", "ejs");
+
 app.use(limiter);
 app.use(logger("dev"));
 app.use(express.json());
