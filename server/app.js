@@ -11,7 +11,7 @@ const app = express();
 
 const limiter = rateLimit({
   windowMs: 1 * 60 * 1000,
-  max: 10,
+  max: 30,
 });
 
 app.set("view engine", "ejs");
