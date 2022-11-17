@@ -1,27 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Semitone API</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
+  <body class="bg-gradient-to-b from-slate-900 to-purple-900">
     <nav
-      class="flex justify-center align-center bg-slate-900 h-20 min-w-full shadow-xl"
+      class="flex justify-between items-center bg-transparent h-20 min-w-full"
     >
-      <ul class="text-slate-100">
-        <li>Semitone API</li>
-        <li></li>
-      </ul>
+      <div class="flex items-center justify-between w-1/4">
+        <span
+          style="font-family: Lato"
+          class="flex items-center text-slate-100 ml-10 text-xl"
+          >Semitone API</span
+        >
+        <a href="#about" class="text-slate-100 text-sm hover:cursor-pointer"
+          >About</a
+        >
+        <a href="#guide" class="text-slate-100 text-sm hover:cursor-pointer"
+          >Guide</a
+        >
+      </div>
+
+      <a
+        href="https://github.com/ryanpunwasi/semitone-api"
+        target="_blank"
+        class="text-white py-1 px-4 border border-white rounded-md mr-10 hover:bg-violet-100 hover:text-violet-700 hover:border-violet-700 hover:cursor-pointer ease-in duration-200"
+        >Repo</a
+      >
     </nav>
-    <div class="h-screen">
-      <section>
-        <h2>About</h2>
-      </section>
-      <section><h2>Guide</h2></section>
-    </div>
+    <section class="h-screen"></section>
+    <section
+      id="about"
+      class="h-screen bg-violet-500 bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-600"
+    >
+      <header><h2>About</h2></header>
+    </section>
+    <section id="guide" class="h-screen bg-slate-200">
+      <header><h2>Guide</h2></header>
+    </section>
     <footer class="bg-slate-900 h-40 min-w-full">vfd</footer>
   </body>
 </html>
