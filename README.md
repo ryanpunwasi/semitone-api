@@ -4,7 +4,7 @@
 
 Semitone API is a REST API that serves a total of sixty musical notes in five different octaves from the Western diatonic scale. This includes the notes A through G, as well as their accidentals.
 
-Each note is represented as an object with the following properties:
+Responses are in JSON format. Each note is represented as an object with the following properties:
 
 <ul>
 <li><code>id</code> - a unique id</li>
@@ -37,11 +37,16 @@ REST calls are made up of:
 <code>/octaves</code></li>
 
 <li>Get all notes in a specific octave<br />
-<code>/notes/octaves/{octave}</code></li>
+<code>/notes/octaves/{octave}</code>
+<p>Example: https://semitone-api.fly.dev/notes/octaves/3</p></li>
 
 <li>Get a specific note<br />
-<code>/notes/{octave}/{letter}/{accidental}</code></li>
+<code>/notes/{octave}/{letter}/{accidental}</code>
+<p>Example: https://semitone-api.fly.dev/notes/1/C/sharp</p></li>
 
 </ul>
 
 ## Exceptions
+
+<p>Requests for the notes C flat (C♭)  and B sharp (B♯) will result in a 404: Not Found. This is because these notes belong to an octave that is different from the octave specified in the request. For example, the request <code>/notes/3/C/flat</code> is requesting a note from the third octave. However, C flat in octave 3 is equivalent to B sharp in octave 2.</p>
+<p>If the accidental for a note is not specified, the natural variation will be returned. For example, a request to the endpoint <code>/notes/3/C</code> will return C natural.</p>
