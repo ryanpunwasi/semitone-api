@@ -12,8 +12,12 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Signika+Negative:wght@600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-gradient-to-b from-slate-900 to-purple-900">
+  <body class="bg-gradient-to-b from-slate-900 to-purple-700">
     <nav
       class="flex justify-between items-center bg-transparent h-20 min-w-full"
     >
@@ -38,7 +42,52 @@
         >Repo</a
       >
     </nav>
-    <section class="h-screen"></section>
+    <section class="h-screen flex justify-center items-center">
+      <div
+        class="w-2/5 flex flex-col justify-center items-center text-5xl"
+        style="font-family: Signika Negative"
+      >
+        <p class="text-slate-100 mb-4">Audio for musical notes</p>
+        <p class="text-slate-100">Completely free</p>
+      </div>
+      <div class="w-3/5 flex justify-center items-center">
+        <code
+          class="bg-gray-700/60 shadow-lg rounded p-10 text-slate-300 w-4/5 text-sm text-ellipsis leading-6"
+          ><p class="text-gray-500">// Get C sharp from octave three</p>
+          <p class="mb-5">
+            > axios<br />.get('<a
+              target="_blank"
+              href="https://semitone-api.fly.dev/notes/3/C/sharp"
+              class="text-blue-400 hover:text-blue-300"
+              >https://semitone-api.fly.dev/notes/3/C/sharp</a
+            >')<br />.then(response => console.log(response.data.note));
+          </p>
+          <ul>
+            <li>{</li>
+            <li class="ml-3">"id": <span class="text-orange-300">26</span>,</li>
+            <li class="ml-3">
+              "octave_id": <span class="text-orange-300">3</span>,
+            </li>
+            <li class="ml-3">
+              "letter": <span class="text-emerald-500">"C"</span>,
+            </li>
+            <li class="ml-3">
+              "accidental": <span class="text-emerald-500">"sharp"</span>,
+            </li>
+            <li class="ml-3 whitespace-nowrap">
+              "src":
+              <a
+                target="_blank"
+                href="https://res.cloudinary.com/dv0dqorkh/video/upload/v1664597748/semitone/octave-3/Csharp_u7gabd.mp3"
+                class="text-emerald-500 hover:text-emerald-300"
+                >"https://res.cloudinary.com/dv0dqorkh/video/..."</a
+              >
+            </li>
+            <li>}</li>
+          </ul>
+        </code>
+      </div>
+    </section>
     <section
       id="about"
       class="h-screen bg-violet-500 bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-600"
@@ -48,6 +97,18 @@
     <section id="guide" class="h-screen bg-slate-200">
       <header><h2>Guide</h2></header>
     </section>
-    <footer class="bg-slate-900 h-40 min-w-full">vfd</footer>
+    <footer
+      class="bg-slate-900 h-40 min-w-full flex justify-center items-center"
+    >
+      <p class="text-slate-100 text-sm">
+        Made by
+        <a
+          href="https://github.com/ryanpunwasi"
+          target="_blank"
+          class="text-purple-400"
+          >@ryanpunwasi</a
+        >
+      </p>
+    </footer>
   </body>
 </html>
