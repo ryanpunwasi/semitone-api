@@ -24,7 +24,7 @@
       <div class="flex items-center justify-around w-64">
         <span
           style="font-family: Lato"
-          class="flex items-center text-slate-100 ml-10 text-xl"
+          class="flex items-center text-slate-100 ml-10 md:text-xl sm:text-sm"
           >Semitone API</span
         >
         <a href="#guide" class="text-slate-100 text-sm hover:cursor-pointer"
@@ -39,17 +39,19 @@
         >Repo</a
       >
     </nav>
-    <section class="h-screen flex justify-center items-center">
+    <section
+      class="sm:h-screen h-500 flex flex-col sm:flex-row justify-center items-center"
+    >
       <div
-        class="w-2/5 flex flex-col justify-center items-center text-5xl"
+        class="w-2/5 flex flex-col justify-start items-start sm:items-center md:text-5xl text-2xl ml-5 mb-10"
         style="font-family: Signika Negative"
       >
         <p class="text-slate-100 mb-4">Audio for musical notes</p>
         <p class="text-slate-100">Completely free</p>
       </div>
-      <div class="w-3/5 flex justify-center items-center">
+      <div class="w-full sm:w-3/5 flex justify-center items-center">
         <code
-          class="bg-gray-700/60 shadow-lg rounded-md p-10 text-slate-300 w-4/5 text-sm text-ellipsis leading-6"
+          class="bg-gray-700/60 shadow-lg rounded-md p-10 text-slate-300 w-4/5 text-sm text-ellipsis leading-6 mb-10"
           ><p class="text-gray-500">// Get C sharp from octave three</p>
           <p class="mb-5">
             > axios<br />.get('<a
@@ -71,13 +73,13 @@
             <li class="ml-3">
               "accidental": <span class="text-emerald-500">"sharp"</span>,
             </li>
-            <li class="ml-3 whitespace-nowrap">
+            <li class="ml-3">
               "src":
               <a
                 target="_blank"
                 href="https://res.cloudinary.com/dv0dqorkh/video/upload/v1664597748/semitone/octave-3/Csharp_u7gabd.mp3"
                 class="text-emerald-500 hover:text-emerald-300"
-                >"https://res.cloudinary.com/dv0dqorkh/video/..."</a
+                >"https://res.cloudinary.com/dv0d..."</a
               >
             </li>
             <li>}</li>
@@ -112,6 +114,10 @@
           </h2>
         </header>
         <div class="flex flex-col justify-center items-start">
+          <p class="text-slate-900/70 font-semibold mb-1">Base URL</p>
+          <code class="bg-gray-700/80 rounded-md py-3 px-5 text-yellow-400 mb-6"
+            >https://semitone-api.fly.dev</code
+          >
           <p class="text-slate-900/70 font-semibold mb-1">Fetch all notes</p>
           <code class="bg-gray-700/80 rounded-md py-3 px-5 text-yellow-400 mb-6"
             >/notes</code
