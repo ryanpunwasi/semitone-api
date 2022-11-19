@@ -28,4 +28,8 @@ app.use("/", indexRouter);
 app.use("/notes", notesRouter);
 app.use("/octaves", octavesRouter);
 
+app.use((req, res, next) => {
+  res.sendStatus(404).send("Not found.");
+});
+
 module.exports = app;
