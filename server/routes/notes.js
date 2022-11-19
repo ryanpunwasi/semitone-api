@@ -23,6 +23,7 @@ router.get("/", (req, res) => {
 // Get all notes from a given octave
 router.get("/octaves/:octave", (req, res) => {
   const { octave } = req.params;
+  if (!parseInt(octave)) return res.sendStatus(404).send("Not found.");
   notes.getOctave(octave).then(data => {
     return res.json({ notes: data });
   });
