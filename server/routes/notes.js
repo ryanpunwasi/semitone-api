@@ -57,10 +57,10 @@ router.get("/:octave/:letter/:accidental?", (req, res) => {
   // Make queries and send response
   notes.getNote(octave, letter, accidental).then(data => {
     if (!data.length && alternate) {
-      const { octave, letter, accidental } = alternate;
+      // const { octave, letter, accidental } = alternate;
       notes
-        .getNote(octave, letter, accidental)
-        .then(data => res.json({ note: data[0] }));
+        .getNote(alternate.octave, alternate.letter, alternate.accidental)
+        .then(data => res.json({ note: { ...data[0], letter, accidental } }));
     } else if (!data.length && !alternate) {
       return res.sendStatus(404);
     } else {
