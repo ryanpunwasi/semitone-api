@@ -23,17 +23,23 @@ router.get("/", (req, res) => {
 // Get all notes from a given octave
 router.get("/octaves/:octave", (req, res) => {
   const { octave } = req.params;
+
   if (!parseInt(octave)) return res.sendStatus(404).send("Not found.");
+
   notes.getOctave(octave).then(data => {
     return res.json({ notes: data });
   });
 });
 
 router.get("/:octave/:letter/:accidental?", (req, res) => {
-  const { octave, letter } = req.params;
+  // Extract parameters
+  const { octave } = req.params;
+  const letter = req.params.letter.toUpperCase();
   const accidental = req.params.accidental || "natural";
 
   const naturals = ["C", "D", "E", "F", "G", "A", "B"];
+
+  // Handle invalid parameters
   if (!parseInt(octave) || !naturals.includes(letter.toUpperCase()))
     return res.sendStatus(400);
 
@@ -45,7 +51,10 @@ router.get("/:octave/:letter/:accidental?", (req, res) => {
   )
     return res.sendStatus(400);
 
+  // Get enharmonic
   const alternate = getAlternate({ octave, letter, accidental });
+
+  // Make queries and send response
   notes.getNote(octave, letter, accidental).then(data => {
     if (!data.length && alternate) {
       const { octave, letter, accidental } = alternate;
