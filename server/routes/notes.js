@@ -4,20 +4,23 @@ const getAlternate = require("../helpers/getAlternate");
 
 // Get all notes
 router.get("/", (req, res) => {
-  notes.getAllNotes().then(data => {
-    const notes = {};
+  notes
+    .getAllNotes()
+    .then(data => {
+      const notes = {};
 
-    // Organize notes by octave
-    data.forEach(note => {
-      if (notes[note.octave_id]) {
-        notes[note.octave_id].push(note);
-      } else {
-        notes[note.octave_id] = [note];
-      }
-    });
+      // Organize notes by octave
+      data.forEach(note => {
+        if (notes[note.octave_id]) {
+          notes[note.octave_id].push(note);
+        } else {
+          notes[note.octave_id] = [note];
+        }
+      });
 
-    return res.json({ notes });
-  });
+      return res.json({ notes });
+    })
+    .catch(err => console.log(err));
 });
 
 // Get all notes from a given octave
