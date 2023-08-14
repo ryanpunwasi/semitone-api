@@ -6,6 +6,7 @@
     "start": "node ./bin/www",
     "db:reset": "node db/scripts/resetdb.js",
     "local": "./node_modules/.bin/nodemon",
+    "build": "npm install && node db/scripts/resetdb.js && npm run local",
     "test": "jest"
   },
   "dependencies": {
