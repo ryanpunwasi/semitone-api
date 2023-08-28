@@ -23,7 +23,7 @@ Responses are in JSON format. Each note is represented as an object with the fol
 REST calls are made up of:
 
 <ul>
-<li>Base URL. Example <code>https://semitone-api.fly.dev</code></li>
+<li>Base URL. Example <code>https://semitone-api.onrender.com</code></li>
 <li>Endpoint. Example <code>/notes</code></li>
 </ul>
 
@@ -38,11 +38,11 @@ REST calls are made up of:
 
 <li>Get all notes in a specific octave<br />
 <code>/notes/octaves/{octave}</code>
-<p>Example: https://semitone-api.fly.dev/notes/octaves/3</p></li>
+<p>Example: https://semitone-api.onrender.com/notes/octaves/3</p></li>
 
 <li>Get a specific note<br />
 <code>/notes/{octave}/{letter}/{accidental}</code>
-<p>Example: https://semitone-api.fly.dev/notes/1/C/sharp</p></li>
+<p>Example: https://semitone-api.onrender.com/notes/1/C/sharp</p></li>
 
 </ul>
 
