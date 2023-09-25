@@ -10,6 +10,11 @@ const octavesRouter = require("./routes/octaves");
 
 const app = express();
 
+app.use(function (req, res, next) {
+  res.header("Cache-control", "public, max-age=300");
+  next();
+});
+
 const limiter = rateLimit({
   windowMs: 1 * 60 * 1000,
   max: 30,
